@@ -12,7 +12,7 @@ module Amino
       filters = []
       conds.each {|k,v| filters << {name: k, values: Array(v)} }
 
-      @images = Aws::EC2::Client.new(opts).describe_images(
+      @images = ::Aws::EC2::Client.new(opts).describe_images(
         filters: filters
       ).images
     end
